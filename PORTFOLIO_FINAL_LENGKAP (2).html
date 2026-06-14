@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wulan Atikasari - ERP Specialist | Odoo & D365 Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #875A7B;
+            --secondary: #6C7CC4;
+            --odoo: #875A7B;
+            --d365: #00A4EF;
+            --success: #28a745;
+            --dark: #0f0f0f;
+            --light: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #875A7B, #6C7CC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-menu a:hover {
+            color: #6C7CC4;
+            background: rgba(108, 124, 196, 0.1);
+        }
+
+        body {
+            padding-top: 70px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(135, 90, 123, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #875A7B, #6C7CC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #875A7B, #6C7CC4);
+            color: white;
+            box-shadow: 0 0 30px rgba(135, 90, 123, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(135, 90, 123, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #6C7CC4;
+            border: 2px solid #6C7CC4;
+        }
+
+        .btn-secondary:hover {
+            background: #6C7CC4;
+            color: white;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #875A7B, #6C7CC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #875A7B, #6C7CC4);
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-card:hover {
+            border-color: #6C7CC4;
+            background: rgba(108, 124, 196, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            color: #6C7CC4;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-card p {
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            padding: 2rem 0 2rem 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #6C7CC4, transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(108, 124, 196, 0.3);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 1.75rem;
+            width: 14px;
+            height: 14px;
+            background: #0f0f0f;
+            border: 3px solid #6C7CC4;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item h3 {
+            color: #875A7B;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .company {
+            color: #6C7CC4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .company-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(108, 124, 196, 0.2);
+            color: #6C7CC4;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .timeline-item .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .timeline-item li {
+            color: #bbb;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #6C7CC4;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(135, 90, 123, 0.2);
+            color: #875A7B;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            margin-bottom: 3rem;
+        }
+
+        .skill-category h4 {
+            color: #6C7CC4;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(108, 124, 196, 0.3);
+        }
+
+        .skill-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: #875A7B;
+            background: rgba(135, 90, 123, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            background: linear-gradient(135deg, #875A7B, #6C7CC4);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #875A7B, #6C7CC4);
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.75rem;
+            border-radius: 8px;
+            border-left: 4px solid #875A7B;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-left-color: #6C7CC4;
+            background: rgba(108, 124, 196, 0.1);
+        }
+
+        .cert-card h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: #6C7CC4;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item h4 {
+            color: #6C7CC4;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item a {
+            color: #6C7CC4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #875A7B;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #6C7CC4;
+            background: rgba(108, 124, 196, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #6C7CC4;
+            text-decoration: none;
+        }
+
+        .message {
+            display: none;
+            padding: 1rem;
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            border-radius: 6px;
+            color: #28a745;
+            margin-top: 1rem;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        /* Icons */
+        .icon-odoo {
+            color: #875A7B;
+            font-size: 1.3rem;
+        }
+
+        .icon-d365 {
+            color: #00A4EF;
+            font-size: 1.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.5rem;">
+                <!-- Odoo Logo -->
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Wulan Atikasari
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#accounting-basics">Accounting</a></li>
+            <li><a href="#modules">Modules</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi! I'm <span>Wulan Atikasari</span></h1>
+            <p class="hero-subtitle">ERP Functional Consultant | Odoo & Microsoft Dynamics 365 Expert</p>
+            <p class="hero-description">
+                Transforming complex business processes into efficient, scalable ERP solutions. 
+                2 years of hands-on experience with Odoo and Microsoft Dynamics 365 implementations.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="#experience" class="btn btn-secondary">
+                    <i class="fas fa-briefcase"></i> View Experience
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p>Master in Information Systems Management (BINUS University - 2026-2027). Bachelor in Educational Administration (Universitas Brawijaya, GPA 3.85/4.0). Strong foundation in management and organizational development.</p>
+            </div>
+            <div class="about-card">
+                <h3><i class="fas fa-cube icon-odoo"></i> Odoo Expert</h3>
+                <p>2 years hands-on experience implementing and optimizing Odoo ERP across all modules. Expert in module configuration, customization, workflow automation, and Odoo Studio development.</p>
+            </div>
+            <div class="about-card">
+                <h3><i class="fas fa-microsoft icon-d365"></i> D365 Specialist</h3>
+                <p>Advanced knowledge in Microsoft Dynamics 365 Finance & Operations. Experienced in supply chain management, business process mapping, system configuration, and enterprise implementations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>
+            <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.75rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Professional Experience
+        </h2>
+        <div class="timeline">
+            <!-- Current Job -->
+            <div class="timeline-item">
+                <h3>ERP Functional Consultant</h3>
+                <div class="company">
+                    <i class="fas fa-building"></i> Kano Solution 
+                    <span class="company-badge">Currently</span>
+                </div>
+                <div class="date"><i class="fas fa-calendar"></i> Jan 2026 - Present | Surabaya, Indonesia</div>
+                <p style="color: #ddd; margin-bottom: 1rem;">
+                    Leading enterprise ERP implementations with expertise in both Microsoft Dynamics 365 Finance & Operations and Odoo ERP. 
+                    Managing end-to-end project delivery from requirements analysis to post-implementation optimization.
+                </p>
+                <strong style="color: #6C7CC4;">Microsoft Dynamics 365 F&O Projects:</strong>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>Leading D365 F&O implementation for supply chain management optimization</li>
+                    <li>Managing business process analysis & system configuration for manufacturing clients</li>
+                    <li>Coordinating UAT with cross-functional teams</li>
+                    <li>Delivering user training to end-users with high adoption rate</li>
+                    <li>Executing data migration from legacy systems with zero discrepancies</li>
+                </ul>
+                <strong style="color: #875A7B;">Odoo ERP Projects:</strong>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>Supporting Odoo ERP implementation across core modules</li>
+                    <li>Configuring and optimizing Odoo for retail and distribution clients</li>
+                    <li>Designing workflow automation and Odoo Studio customization</li>
+                    <li>Providing post-go-live support and system optimization</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge"><i class="fas fa-square icon-d365"></i> D365 F&O</span>
+                    <span class="tech-badge"><i class="fas fa-square icon-odoo"></i> Odoo ERP</span>
+                    <span class="tech-badge">Supply Chain</span>
+                    <span class="tech-badge">UAT Management</span>
+                    <span class="tech-badge">Data Migration</span>
+                </div>
+            </div>
+
+            <!-- Previous Job -->
+            <div class="timeline-item">
+                <h3>ERP Functional Consultant</h3>
+                <div class="company">
+                    <i class="fas fa-building"></i> PT Sinergi Karya Solusindo
+                </div>
+                <div class="date"><i class="fas fa-calendar"></i> Mar 2025 - Jan 2026 | Tangerang, Indonesia</div>
+                <p style="color: #ddd; margin-bottom: 1rem;">
+                    Managed full-cycle Odoo ERP implementations for retail and distribution clients. 
+                    Created comprehensive business process blueprints and led system configuration.
+                </p>
+                <strong style="color: #875A7B;">Odoo Implementation Highlights:</strong>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>Designed & implemented Odoo ERP across Purchase, Sales, Inventory, Accounting</li>
+                    <li>Created detailed business process documentation (BPMN diagrams)</li>
+                    <li>Coordinated UAT for 4 core modules with 30+ testing scenarios</li>
+                    <li>Executed data migration for 50,000+ master records with 100% accuracy</li>
+                    <li>Provided post-go-live support with zero critical production issues</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge"><i class="fas fa-square icon-odoo"></i> Odoo ERP</span>
+                    <span class="tech-badge">BPMN Mapping</span>
+                    <span class="tech-badge">Odoo Studio</span>
+                    <span class="tech-badge">Python</span>
+                </div>
+            </div>
+
+            <!-- Internship -->
+            <div class="timeline-item">
+                <h3>ERP Functional Consultant (Internship)</h3>
+                <div class="company">
+                    <i class="fas fa-building"></i> PT CTech ERP Indonesia
+                </div>
+                <div class="date"><i class="fas fa-calendar"></i> Feb 2023 - Jul 2023 | Jakarta, Indonesia</div>
+                <p style="color: #ddd;">
+                    Supported Odoo ERP implementation projects with focus on business requirement analysis, 
+                    system setup, configuration, and user training delivery.
+                </p>
+                <ul style="margin-top: 1rem;">
+                    <li>Assisted in business requirement gathering & analysis</li>
+                    <li>Supported system setup and module configuration</li>
+                    <li>Created training materials & documentation (30+ documents)</li>
+                    <li>Conducted user training sessions for internal adoption</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3><i class="fas fa-book"></i> Master of Information Systems Management</h3>
+                <div class="company">BINUS University - Jakarta, Indonesia</div>
+                <div class="date">2026 - 2027 | Expected Graduation: 2027</div>
+                <p>
+                    Advanced studies focused on ERP implementation, business system design, and organizational transformation. 
+                    Coursework includes enterprise resource planning, system integration, and change management.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3><i class="fas fa-book"></i> Bachelor of Educational Administration</h3>
+                <div class="company">Universitas Brawijaya - Malang, Indonesia</div>
+                <div class="date">2020 - 2024 | GPA: 3.85/4.00 (Cum Laude)</div>
+                <p>
+                    Graduated with honors with strong foundation in management principles, organizational development, 
+                    and strategic planning. Thesis focused on organizational change management in digital transformation initiatives.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>
+            <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.75rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Skills & Expertise
+        </h2>
+
+        <div style="margin-top: 2rem;">
+            <div class="skill-category">
+                <h4><i class="fas fa-cube icon-odoo"></i> ERP Systems</h4>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <div class="skill-name">Odoo ERP</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                        <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">3+ years hands-on</p>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Microsoft Dynamics 365 F&O</div>
+                        <span class="skill-level">ADVANCED</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">1+ years experience</p>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">SAP</div>
+                        <span class="skill-level">INTERMEDIATE</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+                        <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">Certified</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-cog"></i> Functional Skills</h4>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <div class="skill-name">Business Process Analysis</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">ERP Implementation</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">UAT Management</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Data Migration</div>
+                        <span class="skill-level">ADVANCED</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">User Training</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Change Management</div>
+                        <span class="skill-level">ADVANCED</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-code"></i> Technical & Tools</h4>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <div class="skill-name">Odoo Studio</div>
+                        <span class="skill-level">ADVANCED</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Python</div>
+                        <span class="skill-level">INTERMEDIATE</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">SQL</div>
+                        <span class="skill-level">INTERMEDIATE</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">BPMN Mapping</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Project Management</div>
+                        <span class="skill-level">ADVANCED</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <div class="skill-name">Microsoft Office Suite</div>
+                        <span class="skill-level">EXPERT</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accounting Fundamentals Section -->
+    <section id="accounting-basics">
+        <h2>
+            <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.75rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Accounting Basics
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <!-- Accounting Equation -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B;">
+                <h4 style="color: #875A7B; font-size: 1.2rem; margin-bottom: 1rem;">
+                    <i class="fas fa-equals" style="color: #875A7B; margin-right: 0.5rem;"></i> Accounting Equation
+                </h4>
+                <div style="background: rgba(135, 90, 123, 0.2); padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #6C7CC4; font-size: 1rem; font-weight: bold; margin: 0;">
+                        Assets = Liabilities + Equity
+                    </p>
+                </div>
+                <p style="color: #999; font-size: 0.95rem;">Fundamental balance formula that all financial statements must follow.</p>
+            </div>
+
+            <!-- Debit & Credit -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #6C7CC4;">
+                <h4 style="color: #6C7CC4; font-size: 1.2rem; margin-bottom: 1rem;">
+                    <i class="fas fa-book" style="color: #6C7CC4; margin-right: 0.5rem;"></i> Debit & Credit
+                </h4>
+                <ul style="list-style: none; color: #999; padding-left: 0; margin: 0;">
+                    <li style="margin-bottom: 0.6rem;"><span style="color: #875A7B; font-weight: bold;">Debit (Dr)</span> = Left side, increases assets/expenses</li>
+                    <li style="margin-bottom: 0.6rem;"><span style="color: #6C7CC4; font-weight: bold;">Credit (Cr)</span> = Right side, increases liabilities/revenue</li>
+                    <li style="margin-bottom: 0;"><span style="font-weight: bold;">Golden Rule:</span> Debit = Credit (always balance)</li>
+                </ul>
+            </div>
+
+            <!-- Financial Statements -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B;">
+                <h4 style="color: #875A7B; font-size: 1.2rem; margin-bottom: 1rem;">
+                    <i class="fas fa-file-alt" style="color: #875A7B; margin-right: 0.5rem;"></i> Financial Statements
+                </h4>
+                <ul style="list-style: none; color: #999; padding-left: 0; margin: 0;">
+                    <li style="margin-bottom: 0.6rem;"><i class="fas fa-check" style="color: #6C7CC4; margin-right: 0.5rem;"></i> <strong>Income Statement:</strong> Profit & Loss</li>
+                    <li style="margin-bottom: 0.6rem;"><i class="fas fa-check" style="color: #6C7CC4; margin-right: 0.5rem;"></i> <strong>Balance Sheet:</strong> Assets, Liabilities, Equity</li>
+                    <li style="margin-bottom: 0;"><i class="fas fa-check" style="color: #6C7CC4; margin-right: 0.5rem;"></i> <strong>Cash Flow:</strong> Cash movements</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Odoo Modules Section -->
+    <section id="modules" style="background: linear-gradient(135deg, rgba(135, 90, 123, 0.1) 0%, rgba(108, 124, 196, 0.05) 100%);">
+        <h2>
+            <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.75rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Odoo Modules Expertise
+        </h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 2rem; font-size: 1.1rem;">
+            Comprehensive experience implementing and optimizing core Odoo ERP modules
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <!-- Sales Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B; transition: all 0.3s;">
+                <h4 style="color: #875A7B; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-shopping-cart" style="color: #875A7B;"></i> Sales Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Complete sales pipeline management, quotation, order, and delivery tracking.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Quotations</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Orders</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Delivery</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Invoicing</span>
+                </div>
+            </div>
+
+            <!-- Purchase Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #6C7CC4; transition: all 0.3s;">
+                <h4 style="color: #6C7CC4; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-dolly" style="color: #6C7CC4;"></i> Purchase Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Vendor management, purchase orders, receipt tracking, and invoice matching.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">RFQ</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">PO</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Receipt</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Vendors</span>
+                </div>
+            </div>
+
+            <!-- Inventory Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B; transition: all 0.3s;">
+                <h4 style="color: #875A7B; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-boxes" style="color: #875A7B;"></i> Inventory Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Stock management, warehouse operations, lot tracking, and inventory valuation.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Stock</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Warehouses</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Lot Tracking</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Transfers</span>
+                </div>
+            </div>
+
+            <!-- Accounting Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #6C7CC4; transition: all 0.3s;">
+                <h4 style="color: #6C7CC4; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-calculator" style="color: #6C7CC4;"></i> Accounting Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    General ledger, accounts payable/receivable, bank reconciliation, and reporting.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">GL</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">AP/AR</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Reconciliation</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Reports</span>
+                </div>
+            </div>
+
+            <!-- CRM Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B; transition: all 0.3s;">
+                <h4 style="color: #875A7B; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-users" style="color: #875A7B;"></i> CRM Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Customer relationship management, leads, opportunities, and pipeline tracking.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Leads</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Opportunities</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Activities</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Pipeline</span>
+                </div>
+            </div>
+
+            <!-- Odoo Studio & Development -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #6C7CC4; transition: all 0.3s;">
+                <h4 style="color: #6C7CC4; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-code" style="color: #6C7CC4;"></i> Odoo Studio & Dev
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Custom module development, workflows, automation, and Odoo Studio customization.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Odoo Studio</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Python</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Automation</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Workflows</span>
+                </div>
+            </div>
+
+            <!-- HR Module -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B; transition: all 0.3s;">
+                <h4 style="color: #875A7B; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-briefcase" style="color: #875A7B;"></i> HR Module
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Employee management, payroll, leave management, and recruitment tracking.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Employees</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Payroll</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Leave</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Recruitment</span>
+                </div>
+            </div>
+
+            <!-- Point of Sale -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #6C7CC4; transition: all 0.3s;">
+                <h4 style="color: #6C7CC4; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-cash-register" style="color: #6C7CC4;"></i> Point of Sale
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    Retail point of sale, POS configuration, payment processing, and sales tracking.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">POS Config</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Payments</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Sessions</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(108, 124, 196, 0.2); color: #6C7CC4; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Reports</span>
+                </div>
+            </div>
+
+            <!-- Website & eCommerce -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border-left: 4px solid #875A7B; transition: all 0.3s;">
+                <h4 style="color: #875A7B; font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-globe" style="color: #875A7B;"></i> Website & eCommerce
+                </h4>
+                <p style="color: #bbb; line-height: 1.8; margin-bottom: 1rem;">
+                    eCommerce configuration, online store management, and digital sales channels.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">eCommerce</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Store</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Products</span>
+                    <span style="display: inline-block; padding: 0.35rem 0.7rem; background: rgba(135, 90, 123, 0.2); color: #875A7B; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Cart</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>
+            <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.75rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Professional Certifications & Training
+        </h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> Odoo Functional Training</h4>
+                <div class="cert-issuer">Nusacodes</div>
+                <div class="cert-date">Issued: March 2026</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">Comprehensive Odoo ERP functional training and certification</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> Odoo 18 Series Training</h4>
+                <div class="cert-issuer">Arkana Solusi Digital</div>
+                <div class="cert-date">Issued: 2025</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">Advanced Odoo 18 platform training</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> Business Process Management</h4>
+                <div class="cert-issuer">Taalenta Inteleksia</div>
+                <div class="cert-date">Issued: September 2025</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">Professional BPM and process optimization certification</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> SAP Competency Certification</h4>
+                <div class="cert-issuer">Chahra Event</div>
+                <div class="cert-date">Issued: February 2025</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">SAP ERP system knowledge and competency</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> ERP Odoo Modules</h4>
+                <div class="cert-issuer">CTech ERP Indonesia</div>
+                <div class="cert-date">Issued: January 2025</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">Odoo module implementation and configuration</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> Microsoft Office Desktop</h4>
+                <div class="cert-issuer">Trust Training Partners</div>
+                <div class="cert-date">Issued: March 2024</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">Microsoft Office Suite proficiency certification</p>
+            </div>
+
+            <div class="cert-card">
+                <h4><i class="fas fa-certificate"></i> MSIB ERP Certification</h4>
+                <div class="cert-issuer">Kampus Merdeka</div>
+                <div class="cert-date">Issued: July 2023</div>
+                <p style="color: #aaa; margin-top: 0.75rem; font-size: 0.9rem;">ERP fundamentals and best practices from MSIB program</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 2rem; font-size: 1.1rem;">
+            I'm open to discussing ERP solutions, project collaborations, and new opportunities in the ERP consulting field.
+        </p>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4><i class="fas fa-envelope"></i> Email</h4>
+                    <a href="mailto:atikasari904@gmail.com">atikasari904@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4><i class="fas fa-phone"></i> Phone</h4>
+                    <p>Available upon request via email</p>
+                </div>
+                <div class="contact-item">
+                    <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+                    <p>Surabaya, Indonesia<br><small>Timezone: WIB (UTC+7)</small></p>
+                </div>
+                <div class="contact-item">
+                    <h4><i class="fas fa-clock"></i> Response Time</h4>
+                    <p>Typically within 24 business hours</p>
+                </div>
+            </div>
+
+            <form onsubmit="handleSubmit(event)">
+                <h3 style="color: white; margin-bottom: 1rem;">Send Me a Message</h3>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Your Message..." required></textarea>
+                <button class="btn btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <div id="message" class="message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3 style="color: white;">
+            <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: inline; margin-right: 0.5rem; vertical-align: middle;">
+                <circle cx="50" cy="50" r="40" fill="#875A7B"/>
+                <text x="50" y="65" font-size="60" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">O</text>
+            </svg>
+            Wulan Atikasari
+        </h3>
+        <p>ERP Functional Consultant | Odoo & Microsoft Dynamics 365 Specialist</p>
+        <p style="margin: 1.5rem 0; opacity: 0.7;">Transforming Business Processes Through Technology 🚀</p>
+        <p style="opacity: 0.6;">© 2026 Wulan Atikasari. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = '✅ Thank you! Your message has been received. I will contact you soon.';
+            messageEl.classList.add('show');
+            event.target.reset();
+            setTimeout(() => {
+                messageEl.classList.remove('show');
+            }, 5000);
+        }
+
+        // Smooth navigation
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
